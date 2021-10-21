@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "MyFatMunchSite",
+			"path": "../MyFatMunchSite"
+		},
+		{
+			"name": "MySecondSite",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MySecondSite"
+	}
+}

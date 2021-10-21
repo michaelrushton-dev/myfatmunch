@@ -1,0 +1,448 @@
+* {
+  background-color: rgb(49, 51, 51);
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  color: white;
+}
+
+.navlink {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* wrapping the whole body inside a div to use flex */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* the nav bar wrapper parent */
+.navbar {
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 5%;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+/* the nav bar children -   the greater than selects inside navbar and the star selects all  */
+.navbar * {
+  flex-grow: 0;
+}
+
+.navbar *:hover {
+  transform: scale(1.1);
+}
+
+
+/* the my fat munch logo */
+
+.myfatmainlogo {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 24px;
+  width: 500px;
+}
+
+/* the actual picture images!!! */
+.my-fat-picture {
+  width: 100%;
+}
+
+#click-to-add {
+  margin-right: auto;
+  padding-left: 50px;
+}
+
+/* counter that goes up with each recipe you add */
+
+/* text which is in a flexbox */
+#pages-counter {
+  align-items: center;
+  display: flex;
+  font-size: 1.2em;
+  color: white;
+  justify-content: flex-end;
+  margin-right: 5em;
+}
+
+/* reset button for pages counter */
+
+#reset-button {
+  padding: 15px;
+  border: white solid 2px;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  color: white;
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+#reset-button:hover {
+  transform: scale(1.1);
+}
+
+#number-box {
+  margin-top: 0px;
+  border: 0px;
+  color: white;
+  width: 1.7em;
+  text-align: center;
+  font-size: 2em;
+}
+
+/*pic grid arrange*/
+
+.pic-img-1 {
+  grid-area: pic-img-1;
+}
+.pic-img-2 {
+  grid-area: pic-img-2;
+}
+.pic-img-3 {
+  grid-area: pic-img-3;
+}
+.pic-img-4 {
+  grid-area: pic-img-4;
+}
+.pic-img-5 {
+  grid-area: pic-img-5;
+}
+.pic-img-6 {
+  grid-area: pic-img-6;
+}
+.pic-img-7 {
+  grid-area: pic-img-7;
+}
+.pic-img-8 {
+  grid-area: pic-img-8;
+}
+.pic-img-9 {
+  grid-area: pic-img-9;
+}
+.pic-img-10 {
+  grid-area: pic-img-10;
+}
+.pic-img-11 {
+  grid-area: pic-img-11;
+}
+.pic-img-12 {
+  grid-area: pic-img-12;
+}
+.pic-img-13 {
+  grid-area: pic-img-13;
+}
+.pic-img-14 {
+  grid-area: pic-img-14;
+}
+.pic-img-15 {
+  grid-area: pic-img-15;
+}
+.pic-img-16 {
+  grid-area: pic-img-16;
+}
+.pic-img-17 {
+  grid-area: pic-img-17;
+}
+.pic-img-18 {
+  grid-area: pic-img-18;
+}
+
+.pictures {
+  position: relative;
+  display: grid;
+  margin: 1.5em;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1.5em;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "pic-img-1 pic-img-3 pic-img-3 pic-img-3 pic-img-4 pic-img-4"
+    "pic-img-2 pic-img-3 pic-img-3 pic-img-3 pic-img-4 pic-img-4"
+    "pic-img-5 pic-img-3 pic-img-3 pic-img-3 pic-img-6 pic-img-6"
+    "pic-img-7 pic-img-7 pic-img-8 pic-img-8 pic-img-6 pic-img-6"
+    "pic-img-7 pic-img-7 pic-img-8 pic-img-8 pic-img-9 pic-img-9"
+    "pic-img-10 pic-img-10 pic-img-10 pic-img-11 pic-img-9 pic-img-9"
+    "pic-img-10 pic-img-10 pic-img-10 pic-img-12 pic-img-12 pic-img-12"
+    "pic-img-10 pic-img-10 pic-img-10 pic-img-12 pic-img-12 pic-img-12"
+    "pic-img-13 pic-img-14 pic-img-15 pic-img-12 pic-img-12 pic-img-12"
+    "pic-img-16 pic-img-16 pic-img-16 pic-img-16 pic-img-17 pic-img-17"
+    "pic-img-16 pic-img-16 pic-img-16 pic-img-16 pic-img-17 pic-img-17"
+    "pic-img-16 pic-img-16 pic-img-16 pic-img-16 pic-img-18 pic-img-18"
+    "pic-img-16 pic-img-16 pic-img-16 pic-img-16 pic-img-18 pic-img-18";
+}
+
+/* child elements of grid */
+
+.pictures div {
+  text-align: center;
+  display: grid;
+  position: relative;
+}
+
+.picture-link{
+  text-decoration: none;
+}
+
+.picture-link:hover ~ .add-button {
+
+  transform: scale(0.8);
+  transition: transform 2s;
+
+}
+
+.pictures div img {
+  border-radius: 25px;
+  border: solid rgb(255, 255, 255) 5px;
+  transition: filter linear 2s;
+  transition: filter 3s;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pictures div img:hover, .add-button:hover ~ .pictures div img {
+  opacity: 50%;
+  filter: blur(3px);
+  transform: scale(1.02);
+  transition: transform 2s;
+}
+
+/* text over images with the name of the dish written*/
+.textboxcontainer {
+  border-radius: 25%;
+  display: grid;
+  position: relative;
+  color: rgb(255, 255, 255);
+}
+
+.text-over-images {
+  color: white;
+  font-size: 2em;
+  padding: 5%;
+  border-radius: 25px;
+  opacity: 0;
+  transition: opacity 2s;
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* controlling how the text behaves when you hover on the pictures */
+
+.picture-link:hover ~ .text-over-images,
+.pictures div img:hover ~ .text-over-images,
+.text-over-images:hover,
+.add-button:hover > .picture-link {
+  opacity: 90%;
+  transition: opacity 2s;
+}
+
+/* button to add recipe to main cookbook list   
+                                                  */
+
+.add-button {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  transform: scale(0.7);
+  font-weight: bolder;
+  text-align: center;
+  border: solid 2px black;
+  border-radius: 50%;
+  padding: 1rem;
+  background-color: rgb(202, 199, 199);
+  color: black;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  box-shadow: 0px 10px 13px -7px #000000, 12px 10px 10px 3px rgba(0,0,0,0.16);
+  transition: transform 1s;
+}
+
+
+/* drawing the plus sign with two box elements */
+
+#add-vertical {
+  background-color: rgb(246,5,254);
+  border-radius: 25px;
+  width: 10px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+#add-horizontal {
+  position: relative;
+  background-color: rgb(246,5,254);
+  border-radius: 25px;
+  width: 50px;
+  height: 10px;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+#add-vertical-background {
+  background-color: rgb(20,205,8);
+  border-radius: 25px;
+  border-left: solid 2px black;
+  width: 15px;
+  height: 55px;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+#add-horizontal-background {
+  position: relative;
+  background-color: rgb(20,205,8);
+  border-left: solid 2px black;
+  border-radius: 25px;
+  width: 55px;
+  height: 15px;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.add-button:hover, .pictures div img:hover ~ .add-button {
+  transform: scale(0.8);
+  background-color: rgb(255, 255, 255);
+  border-color: blueviolet;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+/* Big monitor   DO NOT TOUCH!!! */
+
+@media screen and (min-width: 1600px) {
+}
+
+/* first width where sizing down my monitor looks poor */
+@media screen and (max-width: 1600px) {
+  * {
+    background-color: rgb(202, 184, 22);
+  }
+
+  .myfatmainlogo {
+    margin: auto;
+    margin-top: 20px;
+    width: 400px;
+  }
+
+  .pictures {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    grid-template-areas:
+      "pic-img-1 pic-img-2 pic-img-3"
+      "pic-img-4 pic-img-5 pic-img-6"
+      "pic-img-7 pic-img-8 pic-img-9"
+      "pic-img-10 pic-img-11 pic-img-12"
+      "pic-img-13 pic-img-14 pic-img-15"
+      "pic-img-16 pic-img-17 pic-img-18";
+  }
+
+  .text-over-images{
+    opacity: 1;
+  }
+}
+
+/* a landscape tablet or monitor */
+@media screen and (max-width: 1024px) {
+  * {
+    background-color: rgb(22, 202, 103);
+  }
+  .myfatmainlogo {
+    margin: auto;
+    margin-top: 20px;
+    width: 300px;
+  }
+}
+
+/* a portrait tablet */
+@media screen and (max-width: 768px) {
+  * {
+    background-color: blue;
+  }
+
+  .pictures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    grid-template-areas:
+      "pic-img-1 pic-img-2"
+      "pic-img-3 pic-img-4"
+      "pic-img-5 pic-img-6"
+      "pic-img-7 pic-img-8"
+      "pic-img-9 pic-img-10"
+      "pic-img-11 pic-img-12"
+      "pic-img-13 pic-img-14"
+      "pic-img-15 pic-img-16"
+      "pic-img-17 pic-img-18";
+  }
+}
+
+/* a small device like a smartphone */
+@media screen and (max-width: 500px) {
+  * {
+    background-color: rgb(208, 32, 214);
+  }
+
+  .myfatmainlogo {
+    width: 200px;
+  }
+  .pictures {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    grid-template-areas:
+      "pic-img-1"
+      "pic-img-2"
+      "pic-img-3"
+      "pic-img-4"
+      "pic-img-5"
+      "pic-img-6"
+      "pic-img-7"
+      "pic-img-8"
+      "pic-img-9"
+      "pic-img-10"
+      "pic-img-11"
+      "pic-img-12"
+      "pic-img-13"
+      "pic-img-14"
+      "pic-img-15"
+      "pic-img-16"
+      "pic-img-17"
+      "pic-img-18";
+  }
+}
