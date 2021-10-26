@@ -31,12 +31,13 @@ for (let i = 0; i<24; i++){
 //  make pic variable be one of the array items based on a random index number created by getRandomNumber with an argument of the length of the array +1 
 // (random number with the highest number being the length of the array)
   let foodRandom = getRandomNumber(foodPictureImagesNew.length);
-  console.log(`random number: ${foodRandom}`);
+ 
   let pic = `<img src="${foodPictureImagesNew[foodRandom]['url']}" />`; 
-  console.log(`img url: ${foodPictureImagesNew[foodRandom]['url']}`);
+
+  
   // send img src string to the html by class name that is controlled by the template literal value attached to i (+1 so it starts from 1 not 0)
     let pictures = document.getElementsByClassName('pictures')[0];
- let html = `<div class="pic-img-${i}">
+ let html = `<div class="pic-img-${i+1}">
                 <a href = "recipe.html" class="picture-link">
                   <img
                     src="${foodPictureImagesNew[foodRandom]['url']}"
@@ -59,25 +60,9 @@ pictures.innerHTML += html;
     console.log(pic);
 }
 
-
-// trying to get the recipe page to populate with the details of each recipe
-
-// var recipeChosen = "Japanese";
-
-// sessionStorage['recipe-chosen'] = recipeChosen;
-
-// var readValue = sessionStorage['recipe-chosen'];
-// console.log(readValue);
-
-
-
-
 // when button is clicked  -- takes away the s from pages and makes the page counter increase with each click.
 let numberValue = document.getElementById("number-box");
 let pagesBox = document.getElementById("pages-word");
-
-
-
 
 numberValue.value = "0";
 
@@ -92,19 +77,37 @@ function buttonClick() {
 }
 // when clicked reset the numberValue.value to zero
 function resetButton() {
-  console.log("reset");
   numberValue.value = "0";
 }
-console.log('bonjour');
+
+// Toggling menu bar off on smaller viewports
+const navSlide = ()=>{
+const menuButton = document.getElementById('menu-button');
+const navList = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.navbar h1');
+
+// event listener on click to slide in the navbar
+menuButton.addEventListener('click', ()=>{
+  navList.style.zIndex = '1';
+  navList.classList.toggle('navbar-active');
+
+// animating the links to fade in and slide in to center with a delay between each
+  navLinks.forEach((link,index) =>{
+    if(link.style.animation){
+      link.style.animation = '';
+      // setting the z-index of the navbar as being behind all content a second after toggling off so you dont see it slide on/off when switching display sizes
+      setTimeout(function (){
+        navList.style.zIndex = '-1';
+      }, 1000);
+
+    }else{
+      link.style.animation = `navH1Fade 0.5s ease forwards ${index / 5 + 0.3}s`;
+    }
+  });
+});
+}
+// invoke above function on loading
+navSlide();
 
 
-
-// This loops through all the .add-buttons and turns them blue - i tried to include it in the function above but it turns them
-// all blue instead of the one clicked because they are all the same thing duplicated so it wont work
-
-// let addButton = document.getElementsByClassName("add-button");
-// for (let i = 0; i<addButton.length; i++) {
-//   addButton[i].style.backgroundColor = 'skyblue';
-// }
-// console.log(addButton);
 

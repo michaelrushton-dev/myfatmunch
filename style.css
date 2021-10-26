@@ -4,17 +4,12 @@
   box-sizing: border-box;
   color: white;
 }
-
+html{
+  overflow-x: hidden;
+}
 .navlink {
   text-decoration: none;
   color: inherit;
-}
-
-/* wrapping the whole body inside a div to use flex */
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
 /* the nav bar wrapper parent */
@@ -35,18 +30,20 @@
   flex-grow: 0;
 }
 
+
 .navbar *:hover {
   transform: scale(1.1);
 }
 
-
+.fatmunch{
+  display: flex;
+}
 /* the my fat munch logo */
 
 .myfatmainlogo {
-  display: flex;
   margin-top: 20px;
   margin-left: 24px;
-  width: 500px;
+  width: 500px;  
 }
 
 /* the actual picture images!!! */
@@ -63,25 +60,25 @@
 
 /* text which is in a flexbox */
 #pages-counter {
-  align-items: center;
   display: flex;
   font-size: 1.2em;
   color: white;
   justify-content: flex-end;
-  margin-right: 5em;
+  align-items: center;
+  margin-right: 25px;
 }
 
 /* reset button for pages counter */
 
 #reset-button {
-  padding: 15px;
   border: white solid 2px;
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   color: white;
-  margin-left: 1em;
+  margin-left: 10px;
   cursor: pointer;
+  transition: 1s;
 }
 
 #reset-button:hover {
@@ -95,6 +92,14 @@
   width: 1.7em;
   text-align: center;
   font-size: 2em;
+}
+
+#menu-button{
+  margin-left: auto;
+  display: none;
+  font-size: 1.7em;
+  border: solid white 2px;
+  padding: 4px;
 }
 
 /*pic grid arrange*/
@@ -198,7 +203,7 @@
 }
 
 .pictures div img {
-  border-radius: 25px;
+  border-radius: 5px;
   border: solid rgb(255, 255, 255) 5px;
   transition: filter linear 2s;
   transition: filter 3s;
@@ -225,7 +230,7 @@
   color: white;
   font-size: 2em;
   padding: 5%;
-  border-radius: 25px;
+  border-radius: 5px;
   opacity: 0;
   transition: opacity 2s;
   position: absolute;
@@ -253,7 +258,6 @@
 .add-button {
   height: 100px;
   width: 100px;
-  position: relative;
   transform: scale(0.7);
   font-weight: bolder;
   text-align: center;
@@ -345,15 +349,19 @@
 }
 
 /* first width where sizing down my monitor looks poor */
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1490px) {
   * {
     background-color: rgb(202, 184, 22);
+  }
+
+  .fatmunch{
+    justify-content: center;
   }
 
   .myfatmainlogo {
     margin: auto;
     margin-top: 20px;
-    width: 400px;
+    width: 500px;
   }
 
   .pictures {
@@ -370,25 +378,129 @@
       "pic-img-16 pic-img-17 pic-img-18";
   }
 
-  .text-over-images{
+
+  .text-over-images {
+    position:absolute;
     opacity: 1;
+    color: white;
+    font-size: 1.25em;
+    padding: 10px;
+    border-radius: 5px;
+    top: 70%;
+    left: 50%;
+    pointer-events: none;
   }
+
+  .pictures div img:hover, .add-button:hover ~ .pictures div img {
+    opacity: 70%;
+    filter: none;
+    transform: scale(1.02);
+    transition: transform 0s;
+  }
+  
+  .navbar {
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1%;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
 }
 
-/* a landscape tablet or monitor */
-@media screen and (max-width: 1024px) {
+/* landscape tablet - menu bar disappears and menu toggle becomes available */
+
+@media screen and (max-width: 1200px) {
   * {
     background-color: rgb(22, 202, 103);
   }
   .myfatmainlogo {
     margin: auto;
     margin-top: 20px;
-    width: 300px;
+  }
+
+  .text-over-images{
+    font-size: 0.9em;
+  }
+
+  #click-to-add{
+    display: none;
+}
+
+#pages-counter{
+  padding-left: 100px;
+  padding-top: 20px;
+}
+
+.navlink{
+  font-size: 0.8em;
+}
+body {
+  margin:0;
+  padding:0;
+  overflow-x: hidden;
+  position:absolute;
+  clip: left;
+}
+
+.navbar {
+  z-index: -1;
+  transform: translateX(100%);
+  transition:transform 0.5s ease-in;
+  position:absolute;
+  flex-direction: column;
+  background-color:white;
+  align-items: center;
+  width: 50%;
+  margin-right: 0;
+  margin-top: 110px;
+  right:0px;
+  
+}
+
+.navbar-active{
+  transform: translateX(0%);
+}
+
+.navbar h1 {
+  background-color: white;
+  opacity: 0;
+}
+
+.navlink:hover {
+font-size: 0.9em;
+}
+
+.navlink {
+  color: #000000;
+  background-color: white;
+  padding: auto;
+}
+
+#menu-button{
+  display: flex;
+  cursor: pointer;
+}
+
+@keyframes navH1Fade{
+  from{
+opacity: 0;
+transform: translateX(50px);
+  }to{
+opacity: 1;
+transform: translateX(0px);
   }
 }
 
+}
+
+
 /* a portrait tablet */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 970px) {
   * {
     background-color: blue;
   }
@@ -409,6 +521,35 @@
       "pic-img-15 pic-img-16"
       "pic-img-17 pic-img-18";
   }
+
+ .myfatmainlogo{
+   padding: 20px;
+ }
+
+.navbar{
+  margin-top: 104px;
+}
+
+  .navbar{
+    width: 55%;
+  }
+  
+  #number-box{
+    display: none;
+  }
+  
+  #pages-word{
+    display: none;
+  }
+  
+  #reset-button{
+    display: none;
+  }
+  
+  #pages-counter p {
+    display: none;
+  }
+
 }
 
 /* a small device like a smartphone */
@@ -417,9 +558,6 @@
     background-color: rgb(208, 32, 214);
   }
 
-  .myfatmainlogo {
-    width: 200px;
-  }
   .pictures {
     display: grid;
     grid-template-columns: 1fr;
@@ -445,4 +583,5 @@
       "pic-img-17"
       "pic-img-18";
   }
+
 }
